@@ -200,6 +200,21 @@ for(i in data )
         
         
     
+         var ref = firebase.database().ref('market/').limitToLast(2);
+    
+        ref.on("value", function(snapshot) {
+ 
+   var data = snapshot.val();
+for(i in data )
+    {
+        document.getElementById('deals').innerHTML += '        <div class="panel panel-default bootcards-media">    <a href="product.html?id='+i+'" style="text-decoration:none">  <img src="'+data[i].imgsrc+'"  />     <br>           <div class="panel-heading" style="   margin-top:5px"><b>'+data[i].name+'</b></div>     </a>  <div class="panel-footer" ><small><strike> MRP: &#8377 '+data[i].price+' </strike><br>Exclusive offer '+data[i].discount+' % OFF</small></div>        </div>        ';
+    }
+  
+    
+}, function (error) {
+  
+});
+        
         
     </script>
     
@@ -293,37 +308,15 @@ for(i in data )
     
    
     
-    <div class="col-sm-3" style=" margin-top:10px">
+    <div class="col-sm-3" style=" margin-top:10px" id="deals">
         <h3 style="text-align:left"><b>Hot Deals</b></h3>
         <hr>
         
         
-       <div class="panel panel-default bootcards-media"> 
-   <a href="#" style="text-decoration:none">
-  <img src="images/bat.jpg"  /> 
-    <br>
-   
-        <div class="panel-heading" style="   margin-top:5px"><b>Designed bat</b></div>
- 
-    </a>
-  <div class="panel-footer" ><small>Discount: 20% Off</small></div>
-        
-</div>
+      
         
         
-         <div class="panel panel-default bootcards-media"> 
-   <a href="#" style="text-decoration:none">
-  <img src="images/bat.jpg"  /> 
-    <br>
-   
-        <div class="panel-heading" style="   margin-top:5px"><b>Designed bat</b></div>
- 
-    </a>
-  <div class="panel-footer" ><small>Discount: 20% Off</small></div>
-        
-</div>
-        
-        
+         
         
         
     </div>
