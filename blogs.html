@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cricsta India</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js"></script>
+      
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+      
+    
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+
+  
+ 
+ 
+    <style>
+        
+
+     
+     
+.text {
+  margin: 0 60px;
+}
+
+        h1 {
+  font-size: 32px;
+  margin-top: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  
+  text-align: center;
+  background: #FF7D6D;
+  color: #fff;
+  padding: 4px;
+}
+
+
+span {
+  font: normal normal 10px Arial;
+  text-align: center;
+  color: #998578;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+
+span {
+  font-style: italic;
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+/* Floating Social Media Bar Style Starts Here */
+
+.fl-fl {
+  background: #000000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 4px;
+  width: 190px;
+  position: fixed;
+  right: -160px;
+  z-index: 1000;
+  font: normal normal 10px Arial;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.fa {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 0;
+  width: 40px;
+  margin-left: 8px;
+}
+
+.fl-fl:hover {
+  right: 0;
+}
+
+.fl-fl a {
+  color: #fff !important;
+  text-decoration: none;
+  text-align: center;
+  line-height: 43px!important;
+  vertical-align: top!important;
+}
+
+.float-fb {
+  top: 160px;
+}
+
+.float-tw {
+  top: 215px;
+}
+
+.float-gp {
+  top: 270px;
+}
+
+.float-rs {
+  top: 325px;
+}
+
+.float-ig {
+  top: 380px;
+}
+
+.float-pn {
+  top: 435px;
+}
+/* Floating Social Media Bar Style Ends Here */
+        
+
+        
+        .search
+        {
+            border: 2px solid white;
+        }
+        
+       
+    </style>
+</head>
+<body>
+
+    
+ <script>
+    
+        
+         var config = {
+    apiKey: "AIzaSyBAsREJauRou2wqwezMS2WXzXr3JK0To1I",
+    authDomain: "cricsta-44e07.firebaseapp.com",
+    databaseURL: "https://cricsta-44e07.firebaseio.com",
+    projectId: "cricsta-44e07",
+    storageBucket: "",
+    messagingSenderId: "365102834135"
+  };
+  var app = firebase.initializeApp(config);
+var lastpoint=2;
+     
+     
+     
+     try {
+    var str = window.location.href;
+        var res = str.split("?")[1].split("=")[1];
+         lastpoint=res;
+}
+catch(err) {
+   lastpoint="2";
+}
+     
+     
+   
+var ref = firebase.database().ref('blogs/').orderByKey().startAt(lastpoint).limitToFirst(1);
+ref.on("value", function(snapshot) {
+ 
+   var data = snapshot.val();
+    
+ var x= document.getElementById('blogs');
+    for(i in data)
+        {
+           
+             x.innerHTML+='<div class="col-sm-4" style="margin-bottom: 10px"><div class="panel panel-default bootcards-media">     <img src="'+data[i].imgsrc+'"  />     <br>   <a href="blog.html?id='+i+'" style="text-decoration:none">        <div class="panel-heading" style="text-align:left; margin-top:5px"><b>'+data[i].title+'</b></div>     </a>  <div class="panel-footer" style="text-align:left"><small>Posted on: '+data[i].date+'</small></div>  </div>          </div>';
+            
+        }
+    lastpoint = i;
+   
+    
+}, function (error) {
+  
+});
+     
+      var ref = firebase.database().ref('blogs/').orderByKey().startAt(lastpoint).limitToFirst(2);
+    
+        ref.on("value", function(snapshot) {
+ 
+   var data = snapshot.val();
+for(i in data )
+    {
+        lastpoint = i;
+    }
+   document.getElementById('nextlink').href="blogs.html?id="+lastpoint;
+    
+}, function (error) {
+  
+});
+        
+        
+    
+        
+    </script>
+    
+    
+    <nav class="navbar navbar-expand-lg navbar-light" style="background:#111e6c; ">
+ 
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color:white">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a class="nav-link" href="index.html"><font color="white">Home</font> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="blogs.html"><font color="white">News</font></a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link " href="blogs.html"><font color="white">Blogs</font></a>
+      </li>
+
+        <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle " href="products.html" id="navbardrop" data-toggle="dropdown" style="color:white">
+          <font color="white">  Market Place</font>
+      </a>
+      <div class="dropdown-menu">
+          <a class="dropdown-item" href="products.html"><font color="#111e6c">Exclusive offers</font></a>
+          <a class="dropdown-item" href="products.html"><font color="#111e6c">T-shirts</font></a>
+          <a class="dropdown-item" href="products.html"><font color="#111e6c">Shoes</font></a>
+      </div>
+    </li>
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link " href="about.html"><font color="white">About us</font></a>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="about.html"><font color="white">Contact us</font></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn my-2 my-sm-0 search" type="submit" style="background-color:#111e6c"><font color="white">Search</font></button>
+    </form>
+  </div>
+</nav>
+
+
+    
+<center>
+    
+     
+
+     
+     
+     
+    <h1>Cricsta India</h1>
+  <br>
+<div class="container-fluid" style="width:85%;"  >
+<div class="row">
+  <div class="col-sm-1"></div>
+    
+    <div class="col-sm-8">
+    <h3 style="text-align:left"><b>Recent Blogs</b><br><hr></h3>
+        
+        <div class="row" id="blogs">
+            
+            
+                    
+             
+        
+        </div>
+        
+          <br>
+        
+        
+         <ul class="pagination justify-content-center">
+
+  <li class="page-item"><a class="page-link" href="#" id="nextlink">Next</a></li>
+</ul> 
+        
+                   
+           
+
+    
+    </div>
+    
+   
+    
+    <div class="col-sm-3" style=" margin-top:10px">
+        <h3 style="text-align:left"><b>Hot Deals</b></h3>
+        <hr>
+        
+        
+       <div class="panel panel-default bootcards-media"> 
+   <a href="#" style="text-decoration:none">
+  <img src="images/bat.jpg"  /> 
+    <br>
+   
+        <div class="panel-heading" style="   margin-top:5px"><b>Designed bat</b></div>
+ 
+    </a>
+  <div class="panel-footer" ><small>Discount: 20% Off</small></div>
+        
+</div>
+        
+        
+         <div class="panel panel-default bootcards-media"> 
+   <a href="#" style="text-decoration:none">
+  <img src="images/bat.jpg"  /> 
+    <br>
+   
+        <div class="panel-heading" style="   margin-top:5px"><b>Designed bat</b></div>
+ 
+    </a>
+  <div class="panel-footer" ><small>Discount: 20% Off</small></div>
+        
+</div>
+        
+        
+        
+        
+    </div>
+    
+    </div>
+    
+    
+    
+</div>
+    
+    
+    </center>
+    <br>
+    
+    <div style="width:100%; background-color:black;  color:white; padding:10px 10px 20px 10px; border-top: 15px solid #111E6C" >
+        <center>
+        <br>
+        <h3>Newsletter and Exciting deals — Subscribe for Free</h3>
+       <form class="form-group" >
+      <input class="form-control mr-sm-2" type="search" placeholder="Your email address" aria-label="Search" style="width:30%">
+           <br>
+        <button class="btn my-2 my-sm-0" type="submit" style="background-color:#111e6c"><font color="white">Subscribe</font></button>
+    </form>
+        </center>
+        
+    </div>
+    
+    
+    
+  <div class="text">
+ 
+<div class="float-sm">
+  <div class="fl-fl float-fb">
+    <i class="fa fa-facebook"></i>
+    <a target="_blank" href="https://www.facebook.com/Cricstaindia/"> Like us!</a>
+  </div>
+  <div class="fl-fl float-tw">
+    <i class="fa fa-twitter"></i>
+    <a href="" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-gp">
+    <i class="fa fa-google-plus"></i>
+    <a href="" target="_blank">Recommend us!</a>
+  </div>
+  
+</div>
+
+     </div> 
+ 
+       <footer style="background-color:#FF7D6D; width:100%; left:0" >
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="#"> Cricsta India </a>| Developed by: Aadish Garg
+  </div>
+    </footer>
+  
+    
+   
+    
+    
+    
+</body>
+</html>
