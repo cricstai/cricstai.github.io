@@ -164,7 +164,7 @@ catch(err) {
      
      
    
-var ref = firebase.database().ref('market').orderByKey().startAt(lastpoint).limitToFirst(1);
+var ref = firebase.database().ref('market').orderByKey().startAt(lastpoint).limitToFirst(2);
 ref.on("value", function(snapshot) {
  
    var data = snapshot.val();
