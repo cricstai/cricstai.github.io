@@ -231,7 +231,7 @@ ref.on("value", function(snapshot) {
    var y = document.getElementById('market');
     for(j in data2)
         {
-            y.innerHTML+='   <div class="col-sm-2" style="margin-bottom: 10px"><div class="panel panel-default bootcards-media">   <a href="#"style="text-decoration:none">  <img src="'+data2[j].imgsrc+'"/>     <br>            <div class="panel-heading" style="textalign:center; margin-top:5px"><b>'+data2[j].name+'</b></div>      </a>  <div class="panel-footer" style="text-align:center"<small>Price: '+data2[j].price+'</small></div>        </div>                             </div>';
+            y.innerHTML+='   <div class="col-sm-2" style="margin-bottom: 10px"><div class="panel panel-default bootcards-media">   <a href="product.html?id='+j+'"style="text-decoration:none">  <img src="'+data2[j].imgsrc+'"/>     <br>            <div class="panel-heading" style="textalign:center; margin-top:5px"><b>'+data2[j].name+'</b></div>      </a>  <div class="panel-footer" style="text-align:center"<small>Price: '+data2[j].price+'</small></div>        </div>                             </div>';
         }
   
 
