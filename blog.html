@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
   <title>Cricsta India</title>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-7121227127362414",
-    enable_page_level_ads: true
-  });
-</script>
+<meta property="og:title" content="The Rock" />
+<meta property="og:type"               content="article" />
+
+<meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -23,6 +20,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
 
 
+    
  
     <style>
         
@@ -249,6 +247,11 @@ ref.on("value", function(snapshot) {
     document.getElementById('aname').innerHTML = data.author;
     document.getElementById('aname2').innerHTML = data.author;
      document.getElementById('bimage').src = data.imgsrc;
+   document.getElementsByTagName('meta')[0].setAttribute("content",data.title);
+   document.getElementsByTagName('meta')[2].setAttribute("content",data.imgsrc);
+    
+   
+    /*document.head.innerHTML += '<meta property="og:url"  content="'+window.location.href+'" /><meta property="og:type"  content="article" /><meta property="og:title"  content="'+data.title+'" /><meta property="og:image"           content="'+data.imgsrc+'" />';*/
 }, function (error) {
   
 });
@@ -342,16 +345,6 @@ $( document ).ready(function() {
 
 </script>
     
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124424688-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-124424688-1');
-</script>
-
 <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -375,10 +368,10 @@ $( document ).ready(function() {
   <br>
 <div class="container-fluid" style="width:80%;"  >
 <div class="row">
-  <div class="col-sm-1" style="padding-right:5%">
+  <div class="col-sm-1" style="padding-right:15%">
     
      <a href="https://www.facebook.com/Cricstaindia/" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-                 <a  href="http://twitter.com/CricstaIN" target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
+                 <a  href="http://scripteden.com/download/eden-ui/" target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
     </div>
     
     
